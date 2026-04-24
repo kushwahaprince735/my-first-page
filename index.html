@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Checker</title>
+
+<style>
+    body{
+        font-family: Arial, sans-serif;
+    }
+    .container{
+        margin: 50px;
+        text-align: center;
+    }
+    input{
+        padding: 10px;
+        font-size: 16px;
+    }
+    button{
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+    .result{
+        margin-top: 20px;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Student Result Checker</h1>
+        <input type="text" id="rollNumber" placeholder="Enter Roll Number">
+        <button onclick="checkResult()">Check Result</button>
+        <div class="result" id="resultDisplay"></div>
+    </div>
+
+<script>
+
+const studentData = {
+    10001:{ name:"jay shikha Kushwaha", result:"Pass", marks:20, maximum_marks:40, Text:"Ms Word" },
+    10002:{ name:"Princi Kushwaha", result:"Pass", marks:21, maximum_marks:40, Text:"Ms Word" },
+    10003:{ name:"Shivangi Sahu", result:"Pass", marks:30, maximum_marks:40, Text:"Ms Word" },
+    10004:{ name:"Fatima Khan", result:"Fail", marks:19, maximum_marks:45, Text:"Html Css" },
+    10005:{ name:"Saurbh Yadav", result:"Pass", marks:22, maximum_marks:40, Text:"Ms Word" },
+    10006:{ name:"Sulekha Yadav", result:"Pass", marks:28, maximum_marks:45, Text:"Html Css" },
+    10007:{ name:"Jyoti Kushwaha", result:"Pass", marks:31, maximum_marks:40, Text:"Ms Word" },
+    10008:{ name:"Perna Kushwaha", result:"Pass", marks:35, maximum_marks:45, Text:"Html Css" },
+    10009:{ name:"Raj Kumari Varma", result:"Pass", marks:29, maximum_marks:40, Text:"Ms Word" },
+    10010:{ name:"Tanish Varma", result:"Pass", marks:32, maximum_marks:40, Text:"Ms Word" },
+    10011:{ name:"Ramesh Yadav", result:"Pass", marks:82, maximum_marks:100, Text:"Tally Prime" },
+    10012:{ name:"Sumit Singh", result:"Pass", marks:60, maximum_marks:100, Text:"Html Css JavaScript" },
+    10013:{ name:"Abhishek Yadav", result:"Fail", marks:25, maximum_marks:100, Text:"Python" },
+    10014:{ name:"Shivam Sharma", result:"Pass", marks:84, maximum_marks:100, Text:"Html Css" },
+    10015:{ name:"Raj Kumari Pal", result:"Pass", marks:88, maximum_marks:100, Text:"N/A" },
+    10016:{ name:"Yash Sahu", result:"Pass", marks:88, maximum_marks:100, Text:"JavaScript"},
+
+    67890:{ name:"Arti Varma", result:"Fail", marks:40, maximum_marks:"N/A", Text:"N/A" },
+    666666:{ name:"Ramesh", result:"Pass", marks:90, maximum_marks:"N/A", Text:"N/A" },
+    11121:{ name:"Sumit Varma", result:"Pass", marks:92, maximum_marks:"N/A", Text:"N/A" },
+};
+
+function checkResult() {
+
+    const rollNumber = document.getElementById("rollNumber").value.trim();
+    const result = studentData[rollNumber];
+
+    if (result) {
+        document.getElementById("resultDisplay").innerHTML = `
+            <p><strong>Name:</strong> ${result.name}</p>
+            <p><strong>Result:</strong> ${result.result}</p>
+            <p><strong>Marks:</strong> ${result.marks}</p>
+            <p><strong>Maximum Marks:</strong> ${result.maximum_marks}</p>
+            <p><strong>Course:</strong> ${result.Text}</p>
+        `;
+    } 
+    else {
+        document.getElementById("resultDisplay").innerHTML = `<p style="color:red;">Roll Number Not Found!</p>`;
+    }
+}
+
+</script>
+
+</body>
+</html>
